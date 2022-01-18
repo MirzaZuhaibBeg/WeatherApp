@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Sir-dc-ZDC">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="dkw-ez-0Ig">
+            <objects>
+                <navigationController id="Sir-dc-ZDC" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wxT-YS-2z6">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="K2o-Eh-I5J" kind="relationship" relationship="rootViewController" id="fN4-VK-Dbo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AQ3-eu-hIz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1110" y="80"/>
+        </scene>
+        <!--Location List View Controller-->
+        <scene sceneID="jcf-h3-K4Y">
+            <objects>
+                <viewController storyboardIdentifier="LocationListViewController" id="K2o-Eh-I5J" customClass="LocationListViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HDT-or-bZl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsP-rq-o2b">
+                                <rect key="frame" x="44" y="414" width="326" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="gwR-8L-0fh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Search Location">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchLocationButtonAction:" destination="K2o-Eh-I5J" eventType="touchUpInside" id="77e-32-FWu"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9Q5-FI-pJP">
+                                <rect key="frame" x="20" y="88" width="374" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="u4I-Ia-zKc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
+                                <connections>
+                                    <action selector="searchLocationButtonAction:" destination="K2o-Eh-I5J" eventType="touchUpInside" id="YqQ-Lc-8kx"/>
+                                    <outlet property="delegate" destination="K2o-Eh-I5J" id="ibp-OJ-J7U"/>
+                                </connections>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="und-TK-YMY">
+                                <rect key="frame" x="0.0" y="136" width="414" height="760"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="K2o-Eh-I5J" id="Pxp-uD-9qg"/>
+                                    <outlet property="delegate" destination="K2o-Eh-I5J" id="eBY-Se-D8p"/>
+                                </connections>
+                            </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="0x7-Zl-ya4">
+                                <rect key="frame" x="185" y="426" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="6sp-kE-7pI"/>
+                                    <constraint firstAttribute="width" constant="44" id="YTo-OQ-RFo"/>
+                                </constraints>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mUJ-Js-JUu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fsP-rq-o2b" firstAttribute="leading" secondItem="mUJ-Js-JUu" secondAttribute="leading" constant="44" id="Caf-WU-0I7"/>
+                            <constraint firstItem="mUJ-Js-JUu" firstAttribute="trailing" secondItem="fsP-rq-o2b" secondAttribute="trailing" constant="44" id="G7w-vi-3I9"/>
+                            <constraint firstItem="und-TK-YMY" firstAttribute="top" secondItem="9Q5-FI-pJP" secondAttribute="bottom" id="NuN-Im-Gen"/>
+                            <constraint firstItem="und-TK-YMY" firstAttribute="leading" secondItem="mUJ-Js-JUu" secondAttribute="leading" id="aEX-Th-9Su"/>
+                            <constraint firstItem="0x7-Zl-ya4" firstAttribute="centerX" secondItem="HDT-or-bZl" secondAttribute="centerX" id="biU-0X-qR7"/>
+                            <constraint firstItem="fsP-rq-o2b" firstAttribute="centerY" secondItem="HDT-or-bZl" secondAttribute="centerY" id="ef8-JB-XeO"/>
+                            <constraint firstItem="und-TK-YMY" firstAttribute="trailing" secondItem="mUJ-Js-JUu" secondAttribute="trailing" id="fPZ-yj-rPq"/>
+                            <constraint firstItem="mUJ-Js-JUu" firstAttribute="trailing" secondItem="9Q5-FI-pJP" secondAttribute="trailing" constant="20" id="iHq-4A-Ek8"/>
+                            <constraint firstItem="9Q5-FI-pJP" firstAttribute="top" secondItem="mUJ-Js-JUu" secondAttribute="top" id="jtQ-M2-alg"/>
+                            <constraint firstAttribute="bottom" secondItem="und-TK-YMY" secondAttribute="bottom" id="tnT-0b-wI1"/>
+                            <constraint firstItem="0x7-Zl-ya4" firstAttribute="centerY" secondItem="HDT-or-bZl" secondAttribute="centerY" id="w4e-ol-wN4"/>
+                            <constraint firstItem="9Q5-FI-pJP" firstAttribute="leading" secondItem="mUJ-Js-JUu" secondAttribute="leading" constant="20" id="xuU-jK-tpw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="d6l-vI-FgO">
+                        <nil key="title"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="0x7-Zl-ya4" id="Ndw-OV-IEE"/>
+                        <outlet property="btnSearchLocation" destination="fsP-rq-o2b" id="TKA-cs-S8a"/>
+                        <outlet property="tableView" destination="und-TK-YMY" id="ItM-9T-zpe"/>
+                        <outlet property="textField" destination="9Q5-FI-pJP" id="tXp-dl-zce"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mbv-xQ-UQ6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-147.82608695652175" y="78.348214285714278"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
